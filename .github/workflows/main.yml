@@ -2,16 +2,16 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ "main", "master" ]
+    branches: ["main", "master"]
   pull_request:
-    branches: [ "main", "master" ]
+    branches: ["main", "master"]
 
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  # 1. Job: Linter
+  # Linter
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -24,7 +24,7 @@ jobs:
       - name: Run HTMLHint
         run: htmlhint "**/*.html"
 
-  # 2. Job: Build and Push Docker image
+  # Build and Push Docker image
   build-and-push:
     needs: lint
     runs-on: ubuntu-latest
