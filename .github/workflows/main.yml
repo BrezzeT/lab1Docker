@@ -18,10 +18,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Install HTMLHint
+        run: npm install -g htmlhint
+
       - name: Run HTMLHint
-        uses: htmlhint/action-htmlhint@v2
-        with:
-          base-directory: .
+        run: htmlhint "**/*.html"
 
   # 2. Job: Build and Push Docker image
   build-and-push:
