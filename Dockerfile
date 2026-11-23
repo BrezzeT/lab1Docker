@@ -1,5 +1,5 @@
 # Используем официальный легкий образ Nginx
-FROM nginx:1.31.9-alpine
+FROM nginx:1.31.10-alpine
 
 
 # Копируем index.html в папку
